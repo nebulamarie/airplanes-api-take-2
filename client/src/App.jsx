@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,6 +7,25 @@ import { TiDeleteOutline } from 'react-icons/ti'
 
 function App() {
   const [flightNum, setFlightNum] = useState(0)
+  const [flightArray, setFlightArray] = useState([1000, 1111, 1112].map((flightNumber, i) => {
+    return { 
+      flightcod: flightNumber,
+      fromairportcod: 1,
+      toairportcod: 2,
+      company: "TAP",
+      duration: 2,
+      planecod: 1 
+    }
+  }))
+
+  useEffect(() => {
+    const fetchFlights = async () => {
+      const response = await fetch('http://localhost:3001/flights')
+      const data = await response.json()
+      setFlightArray(data)
+    }
+    fetchFlights()
+  }, [])
 
   // {
   //   "flightcod": 1001,
@@ -16,18 +35,6 @@ function App() {
   //   "duration": 2,
   //   "planecod": 1
   // }
-
-  const flightArray = [1000, 1111, 1112].map((flightNumber, i) => {
-    return { 
-      flightcod: flightNumber,
-      fromairportcod: 1,
-      toairportcod: 2,
-      company: "TAP",
-      duration: 2,
-      planecod: 1 
-    }
-  })
-  console.log(flightArray)
 
 
   return (

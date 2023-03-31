@@ -1,9 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 const { create, read, update, remove }  = require('./db/index.js');
 
 const port = 3001;
 const app = express();
 app.use(express.json());
+
+// 3. Add CORS to your server
+app.use(cors({
+  origin: '*'
+}));
+
 
 
 app.get('/hello', (req, res) => {
