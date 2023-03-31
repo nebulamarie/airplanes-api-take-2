@@ -11,6 +11,11 @@
 .App > h1 {
   color: black;
 }
+
+.App > label {
+  color: black;
+}
+
 .App > input {
   background-color: white;
   color: black;
@@ -18,6 +23,7 @@
   border-radius: 15px;
   padding-left: 1rem;
   width: 14vw;
+  height: 3rem;
 }
 .App > input:focus {
   outline: none;
@@ -31,11 +37,60 @@
   align-items: center;
   background-color: red;
   margin-top: 1rem;
+  overflow-x: scroll;
 }
 
 .flightCard {
   width: 70vw;
-  height: 10vh;
+  height: 15rem;
   background-color: white;
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.flightCardBottomSection {
+  flex-grow: 1;
+}
+
+.flightCardTopSection {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: black;
+}
+.flightCardTopSectionFlightContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12rem;
+}
+
+.flightCardTopSectionFlightContainer > h2 {
+  font-size: 3rem;
+  width: 8rem;
+}
+
+.flightCardTopSectionIconContainer {
+  width: 9rem;
+  display: flex;
+  justify-content: space-between;
+}
+.iconContainer {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flightCardBottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+  padding: 1rem;
+  color: black;
 }
