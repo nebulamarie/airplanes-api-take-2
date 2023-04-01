@@ -6,7 +6,7 @@ import { GrEdit } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
 
 function App() {
-  const [flightNum, setFlightNum] = useState(0)
+  const [flightNum, setFlightNum] = useState("")
   const [flightArray, setFlightArray] = useState([1000, 1111, 1112].map((flightNumber, i) => {
     return { 
       flightcod: flightNumber,
@@ -17,15 +17,28 @@ function App() {
       planecod: 1 
     }
   }))
+  
+  const fetchFlights = async () => {
+    const response = await fetch('http://localhost:3001/flights')
+    const data = await response.json()
+    setFlightArray(data)
+  }
 
   useEffect(() => {
-    const fetchFlights = async () => {
-      const response = await fetch('http://localhost:3001/flights')
-      const data = await response.json()
-      setFlightArray(data)
-    }
     fetchFlights()
   }, [])
+
+  useEffect(() => {
+    if (flightNum && flightNum.toString().length === 4) {
+      let filteredFlightArray = flightArray.filter((flight) => {
+        return flight.flightcod === flightNum
+      })
+      console.log(filteredFlightArray)
+      setFlightArray(filteredFlightArray)
+    } else if (flightNum.toString().length > 1 && flightArray.length === 1) {
+      fetchFlights()
+    }
+  }, [flightNum])
 
   // {
   //   "flightcod": 1001,
@@ -41,7 +54,7 @@ function App() {
     <div className="App">
       <h1>Flights</h1>
       <label>Flight Number</label>``
-      <input type="number" value={flightNum} placeholder={'FlightNo'} onChange={(e) => setFlightNum(e.target.value)}/>
+      <input type="number" value={flightNum} placeholder={'FlightNo'} onChange={(e) => setFlightNum(parseInt(e.target.value || 0))}/>
 
       <div className="flightContainer">
         {
