@@ -25,6 +25,22 @@
   width: 14vw;
   height: 3rem;
 }
+
+// Remove the up and down arrows on the input
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
 .App > input:focus {
   outline: none;
 }
@@ -93,4 +109,52 @@
   width: 60%;
   padding: 1rem;
   color: black;
+}
+
+.createFlightButton {
+  width: 10rem;
+  height: 5rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 3px solid blue;
+  border-radius: 15px;
+  margin-top: 1rem;
+  color: black;
+}
+
+.flightCreationBlock {
+  height: 20rem;
+  width: 80vw;
+  background-color: green;
+}
+
+.flightCreationBlock_flightNumber {
+
+}
+
+.flightCreationBlock_fromAirport {
+
+}
+
+.flightCreationBlock_toAirport {
+
+}
+
+.flightCreationBlock_company {
+
+}
+
+.flightCreationBlock_duration {
+
+}
+
+.flightCreationBlock_plane {
+
+}
+
+.flightCreationBlock_createButton {
+
+}
+
+.flightCreationBlock_cancelButton {
+
 }

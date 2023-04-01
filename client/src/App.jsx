@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { GrEdit } from 'react-icons/gr'
 import { TiDeleteOutline } from 'react-icons/ti'
+import FlightCreationBlock from './components/FlightCreationBlock'
 
 function App() {
   const [flightNum, setFlightNum] = useState("")
@@ -17,6 +18,9 @@ function App() {
       planecod: 1 
     }
   }))
+  const [showCreationBlock, setShowCreationBlock] = useState(false)
+
+  const toggleCreationBlock = () => setShowCreationBlock(!showCreationBlock)
   
   const fetchFlights = async () => {
     const response = await fetch('http://localhost:3001/flights')
@@ -56,6 +60,8 @@ function App() {
       <label>Flight Number</label>``
       <input type="number" value={flightNum} placeholder={'FlightNo'} onChange={(e) => setFlightNum(parseInt(e.target.value || 0))}/>
 
+      <button onClick={toggleCreationBlock} className='createFlightButton'>Create Flight</button>
+      {showCreationBlock && <FlightCreationBlock />}
       <div className="flightContainer">
         {
           flightArray.map((flight, i) => {

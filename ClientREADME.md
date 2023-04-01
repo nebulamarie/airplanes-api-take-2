@@ -4,11 +4,12 @@ Your building the interface for the Boku Airline internal flight management syst
 ## Your interface should have the following features:
 
 ### Flights
-- A list of all the flights
-- Search for flights by flight code
-- Create a new flight
-- Edit an existing flight
-- Delete a flight
+[X] A list of all the flights
+[X] Search for flights by flight code
+
+[ ] Create a new flight
+[ ] Edit an existing flight
+[ ] Delete a flight
 
 ### Planes
 - View all of the planes
