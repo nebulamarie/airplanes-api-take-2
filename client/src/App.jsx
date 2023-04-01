@@ -61,7 +61,7 @@ function App() {
       <input type="number" value={flightNum} placeholder={'FlightNo'} onChange={(e) => setFlightNum(parseInt(e.target.value || 0))}/>
 
       <button onClick={toggleCreationBlock} className='createFlightButton'>Create Flight</button>
-      {showCreationBlock && <FlightCreationBlock />}
+      {showCreationBlock && <FlightCreationBlock fetchFlights={fetchFlights} />}  
       <div className="flightContainer">
         {
           flightArray.map((flight, i) => {

@@ -54,6 +54,7 @@ input[type=number] {
   background-color: red;
   margin-top: 1rem;
   overflow-x: scroll;
+  border-radius: 15px;
 }
 
 .flightCard {
@@ -63,6 +64,7 @@ input[type=number] {
   margin: 1rem;
   display: flex;
   flex-direction: column;
+  border-radius: 15px;
 }
 
 .flightCardBottomSection {
@@ -125,34 +127,29 @@ input[type=number] {
   height: 20rem;
   width: 80vw;
   background-color: green;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-top: 1rem;
 }
 
-.flightCreationBlock_flightNumber {
-
+.flightCreationBlock_flightNumber, .flightCreationBlock_fromAirport, .flightCreationBlock_company, .flightCreationBlock_duration, .flightCreationBlock_toAirport, .flightCreationBlock_plane {
+  margin-right: 1rem;
+  width: 15rem;
 }
 
-.flightCreationBlock_fromAirport {
-
-}
-
-.flightCreationBlock_toAirport {
-
-}
-
-.flightCreationBlock_company {
-
-}
-
-.flightCreationBlock_duration {
-
-}
-
-.flightCreationBlock_plane {
-
+.flightCreationBlock_buttonContainer {
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .flightCreationBlock_createButton {
-
+  margin-right: 10rem;
 }
 
 .flightCreationBlock_cancelButton {

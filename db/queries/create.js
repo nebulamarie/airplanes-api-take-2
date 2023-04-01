@@ -3,9 +3,9 @@ const Pool = require('../pool');
 // Post flight
 const flight = (req, res) => {
   // Collect data from request body
-  const { flightcod, toairportcod, company, duration, planecod } = req.body;
+  const { flightcod, fromairportcod, toairportcod, company, duration, planecod } = req.body;
   // Query database using data from request body utilizing $1, $2, $3, $4, $5
-  Pool().query( 'INSERT INTO FLIGHT (flightcod, toairportcod, company, duration, planecod) VALUES ($1, $2, $3, $4, $5)', [flightcod, toairportcod, company, duration, planecod], (error, results) => {
+  Pool().query( 'INSERT INTO FLIGHT (flightcod, toairportcod, fromairportcod, company, duration, planecod) VALUES ($1, $2, $3, $4, $5, $6)', [flightcod, toairportcod, fromairportcod, company, duration, planecod], (error, results) => {
     if (error) {
       res.status(500)
       throw error
