@@ -79,6 +79,7 @@ input[type=number] {
   padding: 1rem;
   color: black;
 }
+
 .flightCardTopSectionFlightContainer {
   display: flex;
   align-items: center;
@@ -126,7 +127,8 @@ input[type=number] {
 .flightCreationBlock {
   height: 20rem;
   width: 80vw;
-  background-color: green;
+  background-color: red;
+  color: white;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -134,18 +136,28 @@ input[type=number] {
   padding: 2rem;
   border-radius: 15px;
   margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.flightCreationBlock > * > label {
+  font-weight: bold;
+  margin-right: 1rem;
 }
 
 .flightCreationBlock_flightNumber, .flightCreationBlock_fromAirport, .flightCreationBlock_company, .flightCreationBlock_duration, .flightCreationBlock_toAirport, .flightCreationBlock_plane {
   margin-right: 1rem;
-  width: 15rem;
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .flightCreationBlock_buttonContainer {
+  margin-top: 2rem;
   width: 30vw;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end
+  height: 1rem;
 }
 
 .flightCreationBlock_createButton {

@@ -28,6 +28,12 @@ function App() {
     setFlightArray(data)
   }
 
+  const deleteFlight = async (flightcod) => {
+    const response = await fetch(`http://localhost:3001/flight/${flightcod}`, { method: 'DELETE' })
+    const data = await response
+    console.log(data)
+  }
+
   useEffect(() => {
     fetchFlights()
   }, [])
@@ -60,8 +66,12 @@ function App() {
       <label>Flight Number</label>``
       <input type="number" value={flightNum} placeholder={'FlightNo'} onChange={(e) => setFlightNum(parseInt(e.target.value || 0))}/>
 
-      <button onClick={toggleCreationBlock} className='createFlightButton'>Create Flight</button>
-      {showCreationBlock && <FlightCreationBlock fetchFlights={fetchFlights} />}  
+      { // Render the button if showCreationBlock is false
+      !showCreationBlock &&<button onClick={toggleCreationBlock} className='createFlightButton'>Create Flight</button>
+      }
+      { // Render the FlightCreationBlock if showCreationBlock is true
+      showCreationBlock && <FlightCreationBlock fetchFlights={fetchFlights} toggleCreationBlock={toggleCreationBlock} />
+      }  
       <div className="flightContainer">
         {
           flightArray.map((flight, i) => {
@@ -74,7 +84,10 @@ function App() {
                     <div className="iconContainer">
                       <GrEdit size={'3rem'} />
                     </div>
-                    <div className="iconContainer">
+                    <div onClick={() => {
+                      deleteFlight(flightcod)
+                      fetchFlights()
+                    }} className="iconContainer">
                       <TiDeleteOutline size={'3.5rem'} />
                     </div>
                   </div>

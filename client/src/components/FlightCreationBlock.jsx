@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FlightCreationBlock = ({fetchFlights}) => {
+const FlightCreationBlock = ({fetchFlights, toggleCreationBlock}) => {
 
   const [flightNumber, setFlightNumber] = useState(-1)
   const [fromAirport, setFromAirport] = useState(-1)
@@ -64,7 +64,7 @@ const FlightCreationBlock = ({fetchFlights}) => {
           duration,
           plane
         })} className='flightCreationBlock__createButton'>Create Flight</button>
-        <button className='flightCreationBlock__cancelButton'>Cancel</button>
+        <button onClick={toggleCreationBlock} className='flightCreationBlock__cancelButton'>Cancel</button>
       </div>
     </div>
   )

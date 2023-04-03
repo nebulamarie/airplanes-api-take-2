@@ -6,10 +6,15 @@ Your building the interface for the Boku Airline internal flight management syst
 ### Flights
 [X] A list of all the flights
 [X] Search for flights by flight code
+[X] Create a new flight
+[X] Delete a flight
 
-[ ] Create a new flight
 [ ] Edit an existing flight
-[ ] Delete a flight
+1. Make a flightContainer version of the create component
+2. Tie the submit button to the updateFlight action
+3. Create a new action to update the flight
+4. Fetch flights from the server
+
 
 ### Planes
 - View all of the planes

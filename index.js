@@ -30,7 +30,7 @@ app.get('/hello', (req, res) => {
 // GET /airports  -  Get all airports
 app.get('/airports', read.airports);
 
-// GET /airport/:id  -  Get airport by id
+// GET /airport/:id  -  Get airport by idπ
 app.get('/airport/:airportcod', read.airport);
 
 // GET /flights  -  Get all flights
