@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const FlightCreationBlock = ({fetchFlights, toggleCreationBlock}) => {
+const FlightCreationBlock = ({fetchFlights, toggleCreationBlock, planeDictionary}) => {
+
+  planeDictionary && console.log(Object.values(planeDictionary))
 
   const [flightNumber, setFlightNumber] = useState(-1)
   const [fromAirport, setFromAirport] = useState(-1)
@@ -53,7 +55,15 @@ const FlightCreationBlock = ({fetchFlights, toggleCreationBlock}) => {
       </div>
       <div className="flightCreationBlock_plane">
         <label>Plane</label>
-        <input type="number" value={plane} placeholder={'Plane'} onChange={(e) => setPlane(parseInt(e.target.value))}/>
+        <select onChange={(e) => setPlane(parseInt(e.target.value))}>
+          <option value={-1}>Select Plane</option>
+          {
+          planeDictionary && 
+            Object.values(planeDictionary).map((planeName, index) => {
+              return <option key={index} value={index}>{planeName}</option>
+            })
+          }
+        </select>
       </div>
       <div className="flightCreationBlock_buttonContainer">
         <button onClick={() => createFlight({
