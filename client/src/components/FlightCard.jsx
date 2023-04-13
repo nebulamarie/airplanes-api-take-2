@@ -16,7 +16,7 @@ function FlightCard({flightcod, deleteFlight, fetchFlights, fromairportcod, comp
   const toggleEditBlock = () => setShowEditBlock(!showEditBlock)
 
   const updateFlight = async () => {
-    const response = await fetch(`http://localhost:3001/flight/${flightcod}`, {
+    const response = await fetch(`http://ec2-52-91-253-141.compute-1.amazonaws.com/3001/flight/${flightcod}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
