@@ -13,7 +13,7 @@ const FlightCreationBlock = ({fetchFlights, toggleCreationBlock, planeDictionary
   
   const createFlight = async (flightData) => {
     const { flightNumber, fromAirport, toAirport, company, duration, plane } = flightData
-    let response = await fetch('http://ec2-52-91-253-141.compute-1.amazonaws.com/3001/flight', {
+    let response = await fetch('https://ec2-52-91-253-141.compute-1.amazonaws.com/3001/flight', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

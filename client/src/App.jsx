@@ -23,20 +23,20 @@ function App() {
   const toggleCreationBlock = () => setShowCreationBlock(!showCreationBlock)
 
   const fetchPlanes = async () => {
-    const response = await fetch('http://ec2-52-91-253-141.compute-1.amazonaws.com:3001/planes')
+    const response = await fetch('https://d2bnur2tilajzw.cloudfront.net/planes')
     const data = await response.json()
     return data
   }
 
   
   const fetchFlights = async () => {
-    const response = await fetch('http://ec2-52-91-253-141.compute-1.amazonaws.com/3001/flights')
+    const response = await fetch('https://d2bnur2tilajzw.cloudfront.net/flights')
     const data = await response.json()
     setFlightArray(data)
   }
   
   const deleteFlight = async (flightcod) => {
-    const response = await fetch(`http://ec2-52-91-253-141.compute-1.amazonaws.com/3001/flight/${flightcod}`, { method: 'DELETE' })
+    const response = await fetch(`https://d2bnur2tilajzw.cloudfront.net/flight/${flightcod}`, { method: 'DELETE' })
     const data = await response
   }
 
@@ -94,7 +94,8 @@ function App() {
                 deleteFlight,
                 fetchFlights
 
-              }} />
+              }} 
+              key={flightcod}/>
             )
           })
         }
